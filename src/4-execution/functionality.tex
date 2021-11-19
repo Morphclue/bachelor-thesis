@@ -1,0 +1,91 @@
+\subsection{Besondere Funktionalitäten}
+Die Godot Engine bietet neben den vorgestellten Entwurfsmustern weitere nützliche Funktionalitäten und Schlüsselwörter. Die Funktion \texttt{ready} wird aufgerufen, wenn eine Node den Szenengraph betritt. In dieser Funktion werden üblicherweise Variablen initialisiert, Animationen gestartet oder Signale gefeuert. \\
+
+Die Funktion \texttt{process} wird bei jedem Frame aufgerufen. Das bedeutet, dass die Häufigkeit davon abhängt, mit wie vielen Bildern pro Sekunde (\ac{FPS}) die Anwendung läuft. Die Funktion \texttt{physics\_process} funktioniert ähnlich, allerdings hängt die Häufigkeit der Ausführung von der im Editor eingestellten Physics-\ac{FPS} ab. Das Problem ist nun, dass beide Funktionen von einem Lag beeinflusst werden können. Ein Lag ist eine Verzögerung und sorgt dafür, dass die Anzahl an \ac{FPS} sinken kann. Das kann dazu führen, dass die Häufigkeit, wie oft eine Funktion ausgeführt wird, sinken kann. Die Ursache dafür sind meistens andere Applikation, Hardware-Ressourcen oder mangelnde Optimierung in der eigenen Applikation. Eine Lösung für dieses Problem bietet die Spiel-Engine mithilfe des Parameters \texttt{delta}.\\
+
+Durch den Parameter \texttt{delta} kann die Berechnung abhängig der Schwankung der \ac{FPS} durchgeführt werden. Dieser Wert gibt die vergangene Zeit der Ausführung der Funkion an. Der Grund, wieso dies nützlich ist, wird an einem Beispiel deutlich. Der Parameter \texttt{delta} gibt bei 60 \ac{FPS} also $\frac{1}{60}$ Sekunde pro Frame an. Falls sich die \texttt{FPS} aufgrund von Lag halbieren sollten, beträgt \texttt{delta} $\frac{1}{30}$ Sekunde pro Frame. Es seien zwei Funktionen gegeben, wobei $delta_0 = \frac{1}{60} \frac{s}{frame}$ und $delta_1 = \frac{1}{30} \frac{s}{frame}$ sind.\\
+
+\setcounter{equation}{0}
+\begin{equation}
+    60 \frac{m}{s} \cdot delta_0 = 1 \frac{m}{frame}
+\end{equation}
+
+\begin{equation}
+  60 \frac{m}{s} \cdot delta_1 = 2 \frac{m}{frame}
+\end{equation}
+
+Anhand dieser Funktionen wird deutlich, dass wenn die \ac{FPS} um einen Faktor zwei geringer wird, die Geschwindigkeit mit der sich ein Node bewegt, um den Faktor zwei erhöht werden muss. Das Ergebnis davon ist, dass in gleicher Zeit die gleiche Distanz zurückgelegte wird. Allerdings ist die Konsequenz daraus, dass eine Bewegung abgehackt wirkt.
+
+\begin{listing}[H]
+\caption{Dollar-Zeichen}
+\label{lst:dollar}
+\begin{minted}
+[
+bgcolor=LightGray,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos,
+]{gd.py:GDScriptLexer -x}
+var shape: CollisionShape2D
+
+func _ready() -> void:
+	shape = $EnemyCollisionShape
+\end{minted}
+\end{listing}
+
+Es ist in der Spiel-Engine oftmals erforderlich, von einem Skript aus auf Knoten weiter unten in der Hierarchie zuzugreifen. Üblicherweise wird dafür die Funktion \texttt{get\_node(``NodePath'')} verwendet, wobei NodePath der relative Pfad zum Zielknoten ist. Weil dies allerdings häufig vorkommt, kann diese Funktion mit einem Dollar-Zeichen abgekürzt werden und ist in \autoref{lst:dollar} zu sehen.
+
+\begin{listing}[H]
+\caption{Schlüsselwort onready}
+\label{lst:onready}
+\begin{minted}
+[
+bgcolor=LightGray,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos,
+highlightlines={1},
+]{gd.py:GDScriptLexer -x}
+onready var shape: CollisionShape2D = $EnemyCollisionShape
+
+func _ready() -> void:
+	pass
+\end{minted}
+\end{listing}
+
+Eine weitere Abkürzung ist das Schlüsselwort \texttt{onready}. Die Variable \texttt{shape} kann nicht bereits beim Deklarieren zugewiesen werden, weil die Node \texttt{EnemyCollisionShape} den Szenengraph noch nicht betreten hat. Damit dies möglich wird, kann das Schlüsselwort \texttt{onready}, wie in \autoref{lst:onready}, vor die Variable geschrieben werden.\\
+
+Das Schlüsselwort \texttt{export} macht Variablen im Editor sichtbar. Dort können Werte zugewiesen oder Referenzen zu anderen Nodes gespeichert werden. Um eine Szene im Voraus laden zu können, kann statt dem Schlüsselwort \texttt{load} das Schlüsselwort \texttt{preload} verwendet werden.
+
+\begin{listing}[H]
+\caption{Schlüsselwort setget}
+\label{lst:setget}
+\begin{minted}
+[
+bgcolor=LightGray,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos,
+highlightlines={1, 4-5, 10},
+]{gd.py:GDScriptLexer -x}
+var value: int setget set_value, get_value
+
+func _ready() -> void:
+	value = 4 
+	self.value = 2
+
+
+func set_value(new_value):
+	value = new_value
+	EventBus.emit_signal("value", new_value)
+
+
+func get_value():
+	return value
+\end{minted}
+\end{listing}
+
+Set- und Get-Methoden werden in den meisten Programmiersprachen verwendet, um Daten zu kapseln. Ebenfalls können diese um weitere Funktionalitäten erweitert werden, welche ausgelöst werden, wenn ein Variablenwert sich verändert. Die Godot Engine bietet mithilfe des \texttt{setget}-Schlüsselworts eine Möglichkeit, diese Set- und Get-Methoden zu definieren. Dabei sei angemerkt, dass diese Methoden nur ausgelöst werden, wenn ein Zugriff von einem externen Skript erfolgt oder das Schlüsselwort \texttt{self} verwendet wird. Ein lokaler Zugriff auf die Variable löst die Set- und Get-Methoden nicht aus.

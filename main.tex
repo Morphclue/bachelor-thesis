@@ -1,20 +1,77 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, dvipsnames]{article}
 
 \input{src/packages}
 \input{src/config}
 \include{src/commands}
+\addbibresource{bib/books.bib}
+
+\pagenumbering{gobble}
 
 \begin{document}
 \include{src/cover}
+\include{src/declaration}
 \include{src/abstract}
 
-\tableofcontents
+\tableofcontents\newpage
+\pagenumbering{roman}
+
+\include{src/acronyms} \newpage
+\listoffigures
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\newpage
+\listoftables
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\newpage
+\renewcommand\listoflistingscaption{Quelltextverzeichnis}
+\listoflistings
+\addcontentsline{toc}{section}{Quelltextverzeichnis}
 \newpage
 
-\section{Einleitung}
-\blindtext
+\pagenumbering{arabic}
+
+\input{src/1-introduction/introduction}
 
 \newpage
-\bibliographystyle{unsrt}
-\bibliography{Bib/Books}
+\input{src/2-literatur/digimon-world}
+\input{src/2-literatur/programming-language}
+\input{src/2-literatur/game-content}
+\input{src/2-literatur/versions}
+
+\newpage
+\input{src/3-states/current-state/state}
+\input{src/3-states/current-state/reviews}
+\input{src/3-states/current-state/bandai}
+\input{src/3-states/current-state/interviews}
+\input{src/3-states/current-state/survey}
+\input{src/3-states/current-state/persona}
+\input{src/3-states/current-state/scenario}
+
+\newpage
+\input{src/3-states/wanted-state/state}
+\input{src/3-states/wanted-state/user-story}
+\input{src/3-states/wanted-state/wireframes}
+
+\newpage
+\input{src/4-execution/development}
+\input{src/4-execution/game-engines}
+\input{src/4-execution/design-patterns}
+\input{src/4-execution/functionality}
+\input{src/4-execution/execution}
+
+\newpage
+\input{src/5-testing/testing}
+
+\newpage
+\input{src/6-conclusion/conclusion}
+
+\newpage
+\printbibliography
+
+\include{src/7-appendix/appendix}
+\include{src/7-appendix/interview-guide}
+\include{src/7-appendix/personas}
+\include{src/7-appendix/hypothesis-overview}
+\include{src/7-appendix/correlations}
+
+
 \end{document}
