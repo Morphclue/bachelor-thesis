@@ -6,16 +6,22 @@
 \addbibresource{bib/books.bib}
 
 \pagenumbering{gobble}
+\setlength\headheight{16pt}
+\rhead{\thepage}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{}
 
 \begin{document}
 \include{src/cover}
 \include{src/declaration}
 \include{src/abstract}
 
+\pagestyle{fancy}
+
 \tableofcontents\newpage
 \pagenumbering{roman}
 
-\include{src/acronyms} \newpage
+\include{src/acronyms}\newpage
 \listoffigures
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \newpage
