@@ -1,58 +1,102 @@
 \subsection{Spiel-Engine}
-Eine Spiel-Engine für die Entwicklung von Videospielen zu verwenden ist heutzutage üblich. Spiel-Engines lassen sich in diverse modulare Bestandteile zerlegen. So besteht eine Spiel-Engine oftmals aus Physik-, Grafik- und Audiomodulen. Je nach Spiel-Engine können diese Module auch variieren. Für die Ausarbeitung des Projekts wird die neueste Version der Godot Engine (v.3.4) verwendet\cite{godot-website}. Um die Auswahl näher erläutern zu können, wird die Godot Engine in der folgenden \autoref{table:game-engine-overview} zwei populären Spiel-Engines gegenübergestellt. \\
+Eine Spiel-Engine für die Entwicklung von Videospielen zu verwenden ist heutzutage üblich.
+Spiel-Engines lassen sich in diverse modulare Bestandteile zerlegen.
+So besteht eine Spiel-Engine oftmals aus Physik-, Grafik- und Audiomodulen.
+Je nach Spiel-Engine können diese Module auch variieren.
+Für die Ausarbeitung des Projekts wird die neueste Version der Godot Engine (v.3.4) verwendet\cite{godot-website}.
+Um die Auswahl näher erläutern zu können, wird die Godot Engine in der folgenden \autoref{table:game-engine-overview} zwei populären Spiel-Engines gegenübergestellt. \\
 
 \begin{center}
-\begin{table}[!ht]
-\centering
-\begin{tabular}{ l | c | c | c }
-   & Godot Engine & Unity & Unreal Engine \\
-  \hline
-  \hline
-  Programmiersprachen & GDScript, C\texttt{++}, C\# & C\# & C\texttt{++} \\
-  Lizenz & MIT & EULA & EULA \\
-  Source-Code zugänglich & \cmark & \xmark & \cmark \\
-  Itch.io-Anteil & $2,5\%$ & $47,3\%$ & $2,8\%$ \\
-  Steam-Anteil & - & $13,2\%$ & $25,6\%$ \\
-  Veröffentlichungsjahr & 2014 & 2005 & 1998 \\
-\end{tabular}
-\caption{Spiel-Engines im Vergleich}
-\label{table:game-engine-overview}
-\end{table}
+  \begin{table}[!ht]
+    \centering
+    \begin{tabular}{ l | c | c | c }
+                             & Godot Engine                & Unity    & Unreal Engine \\
+      \hline
+      \hline
+      Programmiersprachen    & GDScript, C\texttt{++}, C\# & C\#      & C\texttt{++}  \\
+      Lizenz                 & MIT                         & EULA     & EULA          \\
+      Source-Code zugänglich & \cmark                      & \xmark   & \cmark        \\
+      Itch.io-Anteil         & $2,5\%$                     & $47,3\%$ & $2,8\%$       \\
+      Steam-Anteil           & -                           & $13,2\%$ & $25,6\%$      \\
+      Veröffentlichungsjahr  & 2014                        & 2005     & 1998          \\
+    \end{tabular}
+    \caption{Spiel-Engines im Vergleich}
+    \label{table:game-engine-overview}
+  \end{table}
 \end{center}
 
-Die Godot Engine unterstützt aktuell drei verschiedene Programmiersprachen, welche in \autoref{table:game-engine-overview} aufgelistet sind. GDScript ist eine für die Godot Engine entwickelte Programmiersprache, welche der Pythonsyntax stark ähnelt\cite{godot-dynamic-lang}. GDScript ist dynamisch typisiert und verfolgt ebenfalls Konzepte des Duck-Typings\cite{duck-typing}. Jedoch ist es möglich, in GDScript eine statische Typisierung zu verwenden. Eine statische Typisierung ermöglicht die automatische Vervollständigung für alle Methoden und Variablen eines Typs. Dies ist nicht nur vorteilhaft für die Entwicklung, sondern erhöht auch die Geschwindigkeit der Anwendung\cite{godot-static}. Das liegt daran, dass Typen nicht während der Laufzeit ermittelt werden müssen. Aus diesem Grund gibt es weniger Rechenoperationen. Mithilfe der dynamischen Typisierung ist dies nicht möglich, weil der Typ einer Variable erst zur Laufzeit bekannt ist. \\
+Die Godot Engine unterstützt aktuell drei verschiedene Programmiersprachen, welche in \autoref{table:game-engine-overview} aufgelistet sind.
+GDScript ist eine für die Godot Engine entwickelte Programmiersprache, welche der Pythonsyntax stark ähnelt\cite{godot-dynamic-lang}.
+GDScript ist dynamisch typisiert und verfolgt ebenfalls Konzepte des Duck-Typings\cite{duck-typing}.
+Jedoch ist es möglich, in GDScript eine statische Typisierung zu verwenden.
+Eine statische Typisierung ermöglicht die automatische Vervollständigung für alle Methoden und Variablen eines Typs.
+Dies ist nicht nur vorteilhaft für die Entwicklung, sondern erhöht auch die Geschwindigkeit der Anwendung\cite{godot-static}.
+Das liegt daran, dass Typen nicht während der Laufzeit ermittelt werden müssen.
+Aus diesem Grund gibt es weniger Rechenoperationen.
+Mithilfe der dynamischen Typisierung ist dies nicht möglich, weil der Typ einer Variable erst zur Laufzeit bekannt ist. \\
 
-Die Godot Engine und Unreal Engine unterstützen die Programmiersprache C\texttt{++}. C\texttt{++} ermöglicht eine genaue Kontrolle des Speichermanagements. Dies kann allerdings nachteilig sein, weil die Garbage Collection\footnote{Automatische Bereinigung des Speichers} nicht vorhanden ist und der Speicher manuell bereinigt werden muss. Unreal Engine versucht diesem Problem mithilfe einer eigenen Garbage Collection für Objekte vom Typ \texttt{UObject} entgegenzuwirken\cite{unreal-garbage}. Ebenfalls verfügt Unreal Engine über ein eigenes Property System, welches Reflection ermöglicht\cite{unreal-reflection}. Die Godot Engine besitzt diese Features allerdings nicht. Trotzdessen ist C\texttt{++} aufgrund der genauen Kontrolle über Speicherzuweisungen und der Optimierungsmöglichkeiten relevant. Im Vergleich zur Unreal Engine ist es allerdings auch möglich, auf diese Features zu verzichten, wenn eine Optimierung von vornherein nicht notwendig ist. Optimierungen kosten Arbeitszeit und sind nicht immer notwendig.\\
+Die Godot Engine und Unreal Engine unterstützen die Programmiersprache C\texttt{++}.
+C\texttt{++} ermöglicht eine genaue Kontrolle des Speichermanagements.
+Dies kann allerdings nachteilig sein, weil die Garbage Collection\footnote{Automatische Bereinigung des Speichers} nicht vorhanden ist und der Speicher manuell bereinigt werden muss.
+Unreal Engine versucht diesem Problem mithilfe einer eigenen Garbage Collection für Objekte vom Typ \texttt{UObject} entgegenzuwirken\cite{unreal-garbage}.
+Ebenfalls verfügt Unreal Engine über ein eigenes Property System, welches Reflection ermöglicht\cite{unreal-reflection}.
+Die Godot Engine besitzt diese Features allerdings nicht.
+Trotzdessen ist C\texttt{++} aufgrund der genauen Kontrolle über Speicherzuweisungen und der Optimierungsmöglichkeiten relevant.
+Im Vergleich zur Unreal Engine ist es allerdings auch möglich, auf diese Features zu verzichten, wenn eine Optimierung von vornherein nicht notwendig ist.
+Optimierungen kosten Arbeitszeit und sind nicht immer notwendig.\\
 
-Die letzte, in \autoref{table:game-engine-overview} vorkommende, Programmiersprache ist C\#. Diese wird von Unity und der Godot Engine unterstützt. C\# ist eine statische Programmiersprache, welche den Speicher mithilfe eines Garbage Collectors selbst verwaltet.\\
+Die letzte, in \autoref{table:game-engine-overview} vorkommende, Programmiersprache ist C\#.
+Diese wird von Unity und der Godot Engine unterstützt.
+C\# ist eine statische Programmiersprache, welche den Speicher mithilfe eines Garbage Collectors selbst verwaltet.\\
 
-Ein weiterer Unterschied zwischen den Spiel-Engines sind die unterschiedlichen Lizenzen und die Einsicht vom Editorcode. Unity und Unreal Engine fallen unter eine Endbenutzer-Lizenzvereinbarung. Diese besagt, dass beide Spiel-Engines unter dem Rahmen einer proprietären Software fallen und je nach Umsatz des Spieltitels Gebühren anfallen können\cite{unity-price}\cite{unreal-price}. Unity besitzt, als einzige der drei vorgestellten Spiel-Engines, keinen frei zugänglichen Quelltext. Das bedeutet, dass Fehler innerhalb der Spiel-Engine, welche während der Produktion des Spiels auffallen, nicht selbst behoben werden können. In diesem Fall muss darauf gehofft werden, dass das Unity-Entwicklerteam sich dazu entscheidet, diesen Fehler zu beheben. Dies kann jedoch viel Zeit in Anspruch nehmen. Der Quellcode von Unreal Engine ist erst nach Akzeptierung eines Endbenutzer-Lizenzvertrags einsehbar. Die Godot Engine besitzt im Vergleich zu Unity und Unreal Engine keine Einschränkungen bei der Einsicht des Quellcodes. Ebenfalls fallen aufgrund der MIT-Lizenz keine Kosten an. \\
+Ein weiterer Unterschied zwischen den Spiel-Engines sind die unterschiedlichen Lizenzen und die Einsicht vom Editorcode.
+Unity und Unreal Engine fallen unter eine Endbenutzer-Lizenzvereinbarung.
+Diese besagt, dass beide Spiel-Engines unter dem Rahmen einer proprietären Software fallen und je nach Umsatz des Spieltitels Gebühren anfallen können\cite{unity-price}\cite{unreal-price}.
+Unity besitzt, als einzige der drei vorgestellten Spiel-Engines, keinen frei zugänglichen Quelltext.
+Das bedeutet, dass Fehler innerhalb der Spiel-Engine, welche während der Produktion des Spiels auffallen, nicht selbst behoben werden können.
+In diesem Fall muss darauf gehofft werden, dass das Unity-Entwicklerteam sich dazu entscheidet, diesen Fehler zu beheben.
+Dies kann jedoch viel Zeit in Anspruch nehmen. Der Quellcode von Unreal Engine ist erst nach Akzeptierung eines Endbenutzer-Lizenzvertrags einsehbar.
+Die Godot Engine besitzt im Vergleich zu Unity und Unreal Engine keine Einschränkungen bei der Einsicht des Quellcodes.
+Ebenfalls fallen aufgrund der MIT-Lizenz keine Kosten an. \\
 
-\autoref{table:game-engine-overview} enthält ebenfalls Informationen über die beiden Verkaufsplattformen Steam und Itch.io\cite{steam-website}\cite{itchio-website}. Itch.io richtet sich primär an die Entwicklung und den Verkauf von Indie-Spielen. Indie-Spiele werden üblicherweise von kleinen Entwicklerteams entwickelt. Im Kontrast dazu stehen große Entwicklerstudios wie Ubisoft, Riot Games oder das Entwicklerstudio Valve Corporation, welches Steam und zahlreiche Spiele entwickelt hat\cite{ubisoft-website}\cite{riotgames-website}\cite{valve-website}. Die Daten für Steam und Itch.io sind einer Studie entnommen, welche den Markt im Dezember 2018 untersucht hat\cite{taxonomy}. Im Rahmen dieser Arbeit wurden diese Daten mit einem aktuelleren Stand verglichen.\\
+\autoref{table:game-engine-overview} enthält ebenfalls Informationen über die beiden Verkaufsplattformen Steam und Itch.io\cite{steam-website}\cite{itchio-website}.
+Itch.io richtet sich primär an die Entwicklung und den Verkauf von Indie-Spielen.
+Indie-Spiele werden üblicherweise von kleinen Entwicklerteams entwickelt.
+Im Kontrast dazu stehen große Entwicklerstudios wie Ubisoft, Riot Games oder das Entwicklerstudio Valve Corporation, welches Steam und zahlreiche Spiele entwickelt hat\cite{ubisoft-website}\cite{riotgames-website}\cite{valve-website}.
+Die Daten für Steam und Itch.io sind einer Studie entnommen, welche den Markt im Dezember 2018 untersucht hat\cite{taxonomy}.
+Im Rahmen dieser Arbeit wurden diese Daten mit einem aktuelleren Stand verglichen.\\
 
 \begin{center}
-\begin{table}[!ht]
-\centering
-\begin{tabular}{ l | c | c | c}
-  Spiel-Engine & \%-Anteil 2018  & \%-Anteil 2021 & Anstieg \\ 
-  \hline \hline
-  Unity & $47,3\%$ & $52,34\%$ & \cmark\\ 
-  Construct & $12,3\%$ & $11,29\%$ & \xmark \\ 
-  GameMaker & $11,0\%$ & $7,64\%$ & \xmark \\ 
-  Twine & $6,2\%$ & $4,87\%$ & \xmark \\ 
-  RPG Maker & $3,9\%$ & $2,85\%$ & \xmark \\ 
-  Bitsy & $3,3\%$ & $2,99\%$ & \xmark \\ 
-  PICO-8 & $2,9\%$ & $2,66\%$ & \xmark \\ 
-  Unreal & $2,8\%$ & $2,99\%$ & \cmark\\ 
-  Godot & $2,5\%$ & $5,21\%$ & \cmark\\ 
-  Ren'Py & $2,0\%$ & $1,88\%$ & \xmark \\ 
-  Andere Engines & $5,9\%$ & $5,29\%$ & \xmark \\ 
-\end{tabular}
-\caption{Trends auf Itch.io im Vergleich}
-\label{table:game-engine-percent}
-\end{table}
+  \begin{table}[!ht]
+    \centering
+    \begin{tabular}{ l | c | c | c}
+      Spiel-Engine   & \%-Anteil 2018 & \%-Anteil 2021 & Anstieg \\
+      \hline \hline
+      Unity          & $47,3\%$       & $52,34\%$      & \cmark  \\
+      Construct      & $12,3\%$       & $11,29\%$      & \xmark  \\
+      GameMaker      & $11,0\%$       & $7,64\%$       & \xmark  \\
+      Twine          & $6,2\%$        & $4,87\%$       & \xmark  \\
+      RPG Maker      & $3,9\%$        & $2,85\%$       & \xmark  \\
+      Bitsy          & $3,3\%$        & $2,99\%$       & \xmark  \\
+      PICO-8         & $2,9\%$        & $2,66\%$       & \xmark  \\
+      Unreal         & $2,8\%$        & $2,99\%$       & \cmark  \\
+      Godot          & $2,5\%$        & $5,21\%$       & \cmark  \\
+      Ren'Py         & $2,0\%$        & $1,88\%$       & \xmark  \\
+      Andere Engines & $5,9\%$        & $5,29\%$       & \xmark  \\
+    \end{tabular}
+    \caption{Trends auf Itch.io im Vergleich}
+    \label{table:game-engine-percent}
+  \end{table}
 \end{center}
 
 Die konkreten Daten, für die vorgenommene Auswertung, befinden sich im Anhang der Arbeit in einer \ac{CSV}-Datei und sind der Website von Itch.io entnommen\cite{most-projects}.
-\autoref{table:game-engine-percent} zeigt deutlich, dass die in der Arbeit vorgestellten Spiel-Engines einen prozentualen Anstieg der Popularität in den letzten drei Jahren erfahren haben. Alle weiteren Spiel-Engines sanken in der Popularität. Die Spiel-Engine Unity bleibt weiterhin auf dem ersten Platz und umfasst nun mehr als die Hälfte aller entwickelten Projekte auf Itch.io. Der Unterschied zwischen der Unreal Engine und der Godot Engine betrug im Jahr 2018 $0{,}3\%$. Die Godot Engine hat ihre Popularität in den letzten drei Jahren allerdings mehr als verdoppelt. Dadurch ist die Godot Engine im Indie-Bereich nun populärer als die Unreal Engine. Der Unterschied zwischen den beiden Engines beträgt nun $2{,}22\%$. Zusätzlich befindet sich die Godot Engine nun in den Top vier der meist genutzten Spiel-Engines auf Itch.io. Das bedeutet, dass die Godot Engine immer relevanter für die Entwicklung in kleinen Entwicklerteams geworden ist. Aufgrund dieser Punkte ist die Arbeit mit der Godot Engine ausgearbeitet. \\ 
-
+\autoref{table:game-engine-percent} zeigt deutlich, dass die in der Arbeit vorgestellten Spiel-Engines einen prozentualen Anstieg der Popularität in den letzten drei Jahren erfahren haben.
+Alle weiteren Spiel-Engines sanken in der Popularität.
+Die Spiel-Engine Unity bleibt weiterhin auf dem ersten Platz und umfasst nun mehr als die Hälfte aller entwickelten Projekte auf Itch.io.
+Der Unterschied zwischen der Unreal Engine und der Godot Engine betrug im Jahr 2018 $0{,}3\%$.
+Die Godot Engine hat ihre Popularität in den letzten drei Jahren allerdings mehr als verdoppelt.
+Dadurch ist die Godot Engine im Indie-Bereich nun populärer als die Unreal Engine.
+Der Unterschied zwischen den beiden Engines beträgt nun $2{,}22\%$.
+Zusätzlich befindet sich die Godot Engine nun in den Top vier der meist genutzten Spiel-Engines auf Itch.io.
+Das bedeutet, dass die Godot Engine immer relevanter für die Entwicklung in kleinen Entwicklerteams geworden ist.
+Aufgrund dieser Punkte ist die Arbeit mit der Godot Engine ausgearbeitet. \\
