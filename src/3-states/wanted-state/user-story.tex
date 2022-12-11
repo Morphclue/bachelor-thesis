@@ -1,13 +1,45 @@
 \subsection{User Story}\label{sec:user-story}
 Die Arbeit verwendet die Methode der User Stories\cite{scrum-user-stories}.
-Üblicherweise wird eine User Story von einem Kunden auf einen A5 Zettel geschrieben. Aufgrund dessen, dass kein konkreter Kunde für die Arbeit existiert, werden die Stories für die ermittelten Personas aus \autoref{sec:persona} verwendet. Die Karten werden normalerweise nach einem bestimmten Muster geschrieben. \glqq Als $<$Benutzerrolle$>$ will ich $<$das Ziel$>$[, so dass $<$Grund für Ziel$>$]\grqq{} ist hierbei ein typisches Muster.\\
+Üblicherweise wird eine User Story von einem Kunden auf einen A5 Zettel geschrieben.
+Aufgrund dessen, dass kein konkreter Kunde für die Arbeit existiert, werden die Stories für die ermittelten Personas aus \autoref{sec:persona} verwendet.
+Die Karten werden normalerweise nach einem bestimmten Muster geschrieben.
+\glqq Als $<$Benutzerrolle$>$ will ich $<$das Ziel$>$[, so dass $<$Grund für Ziel$>$]\grqq{} ist hierbei ein typisches Muster.\\
 
-Die User Stories funktionieren nach dem \ac{INVEST}-Prinzip\cite{user-stories}. Das bedeutet, dass Stories untereinander keine Abhängigkeiten haben sollen. Weiterhin sollen Karten verhandelbar sein. Das bedeutet, dass die Funktionalitäten unter Umständen verändert werden können. Diese Änderungen und Anmerkungen werden dann auf der Story-Karte notiert. Die Story muss einen Wert für die Nutzenden besitzen und schätzbar sein. Die zeitliche Einschätzung ist wichtig, weil ansonsten davon ausgegangen werden kann, dass das Domänenwissen fehlt oder die Story zu groß ist. Ein Beispiel für dieses Verfahren wäre: \glqq Als Nutzerin will ich mich in der Spielwelt bewegen, sodass ich mit einem \ac{NPC} an einer anderen Position sprechen kann\grqq{}.\\
+Die User Stories funktionieren nach dem \ac{INVEST}-Prinzip\cite{user-stories}.
+Das bedeutet, dass Stories untereinander keine Abhängigkeiten haben sollen.
+Weiterhin sollen Karten verhandelbar sein.
+Das bedeutet, dass die Funktionalitäten unter Umständen verändert werden können.
+Diese Änderungen und Anmerkungen werden dann auf der Story-Karte notiert.
+Die Story muss einen Wert für die Nutzenden besitzen und schätzbar sein.
+Die zeitliche Einschätzung ist wichtig, weil ansonsten davon ausgegangen werden kann, dass das Domänenwissen fehlt oder die Story zu groß ist.
+Ein Beispiel für dieses Verfahren wäre: \glqq Als Nutzerin will ich mich in der Spielwelt bewegen, sodass ich mit einem \ac{NPC} an einer anderen Position sprechen kann\grqq{}.\\
 
-Allerdings ist ein Problem in diesem Verfahren, dass der Begriff des Nutzenden abstrakt ist. Die in dieser Arbeit verwendete Vorgehensweise lehnt sich aus diesem Grund methodisch an die im Buch Story Driven Modeling\cite{story-driven-modeling} vorkommenden Beispiele an. Der Vorteil ist, dass Story-Karten mit der Benennung der nutzenden Person konkreter werden. Ebenfalls werden Stories durch die Beschreibung von Titel, Start-, Schritt- und Endsituation detaillierter. Dies führt dazu, dass gleichzeitig die Testkriterien für die Story-Karten ermittelt werden. Die Startsituation beschreibt den Anfangszustand und die Endsituation den Endzustand, welcher nach der durchgeführten Aktion vorhanden sein muss. Üblicherweise eignen sich an dieser Stelle Tests, welche die Startsituationen mit einem Test überprüfen, eine Funktion aufrufen und die gewünschte Endsituation testen.\\
+Allerdings ist ein Problem in diesem Verfahren, dass der Begriff des Nutzenden abstrakt ist.
+Die in dieser Arbeit verwendete Vorgehensweise lehnt sich aus diesem Grund methodisch an die im Buch Story Driven Modeling\cite{story-driven-modeling} vorkommenden Beispiele an.
+Der Vorteil ist, dass Story-Karten mit der Benennung der nutzenden Person konkreter werden.
+Ebenfalls werden Stories durch die Beschreibung von Titel, Start-, Schritt- und Endsituation detaillierter.
+Dies führt dazu, dass gleichzeitig die Testkriterien für die Story-Karten ermittelt werden.
+Die Startsituation beschreibt den Anfangszustand und die Endsituation den Endzustand, welcher nach der durchgeführten Aktion vorhanden sein muss.
+Üblicherweise eignen sich an dieser Stelle Tests, welche die Startsituationen mit einem Test überprüfen, eine Funktion aufrufen und die gewünschte Endsituation testen.\\
 
-Die Tests von bestimmten Abschnitten und Funktionalitäten werden Unit-Tests genannt\cite{unit-tests}. Sie werden in der Softwareentwicklung verwendet, um Fehler früher zu erkennen. Ein weiterer Grund ist, dass Fehler, welche älteren Code unwirksam machen, früher entdeckt werden. Die Entwicklung von Videospielen unterscheidet sich allerdings von anderen Bereichen der Software-Entwicklung\cite{difference-development}. Das liegt daran, dass Spieletests menschenzentriert sind und menschliches Verhalten komplexer zu automatisieren ist\cite{testing-game-dev}. Zusätzlich kann die Masse an möglichen Zuständen sehr groß sein. Unit-Tests kommen in der Videospielentwicklung vor, allerdings wird ein stärkerer Fokus auf Usability-Testing gelegt\cite{no-unit-tests}. Aus diesem Grund verzichtet diese Arbeit bewusst auf Unit-Tests.\\
+Die Tests von bestimmten Abschnitten und Funktionalitäten werden Unit-Tests genannt\cite{unit-tests}.
+Sie werden in der Softwareentwicklung verwendet, um Fehler früher zu erkennen.
+Ein weiterer Grund ist, dass Fehler, welche älteren Code unwirksam machen, früher entdeckt werden.
+Die Entwicklung von Videospielen unterscheidet sich allerdings von anderen Bereichen der Software-Entwicklung\cite{difference-development}.
+Das liegt daran, dass Spieletests menschenzentriert sind und menschliches Verhalten komplexer zu automatisieren ist\cite{testing-game-dev}.
+Zusätzlich kann die Masse an möglichen Zuständen sehr groß sein.
+Unit-Tests kommen in der Videospielentwicklung vor, allerdings wird ein stärkerer Fokus auf Usability-Testing gelegt\cite{no-unit-tests}.
+Aus diesem Grund verzichtet diese Arbeit bewusst auf Unit-Tests.\\
 
-Für die Durchführung der Methode werden Issues\cite{github-issues} anstelle von Story-Karten verwendet. Diese digitale Variation der Story-Karten bietet mehrere Vorteile. Ein Vorteil ist, dass Inhalte digital als Anhang integriert werden können. Links zu externen Quellen sind per Mausklick abrufbar. Weiterhin sind Inhalte nicht durch eine unleserliche Handschrift unbrauchbar. GitHub bietet ebenfalls eine Funktion, Vorlagen für die Issues zu erstellen. Dies vereinfacht den Prozess der Erstellung von Story-Karten zusätzlich.\\
+Für die Durchführung der Methode werden Issues\cite{github-issues} anstelle von Story-Karten verwendet.
+Diese digitale Variation der Story-Karten bietet mehrere Vorteile.
+Ein Vorteil ist, dass Inhalte digital als Anhang integriert werden können.
+Links zu externen Quellen sind per Mausklick abrufbar.
+Weiterhin sind Inhalte nicht durch eine unleserliche Handschrift unbrauchbar.
+GitHub bietet ebenfalls eine Funktion, Vorlagen für die Issues zu erstellen.
+Dies vereinfacht den Prozess der Erstellung von Story-Karten zusätzlich.\\
 
-Der größte Vorteil ist allerdings, dass GitHub automatisierte Kanban-Tafeln zur Verfügung stellt, in der Issues aufgelistet sind\cite{github-kanban}. Kanban-Tafeln sind übersichtliche Darstellungen der Stories in einem Arbeitsablaufplan\cite{kanban-oreilly}. Die in der Arbeit verwendete Tafel besitzt Spalten für Aufgaben, welche noch nicht begonnen wurden, aktuell in Bearbeitung oder fertig sind. Der Grund für diese Methode ist die einhergehende Übersicht über den aktuellen Verlauf im Projekt. 
+Der größte Vorteil ist allerdings, dass GitHub automatisierte Kanban-Tafeln zur Verfügung stellt, in der Issues aufgelistet sind\cite{github-kanban}.
+Kanban-Tafeln sind übersichtliche Darstellungen der Stories in einem Arbeitsablaufplan\cite{kanban-oreilly}.
+Die in der Arbeit verwendete Tafel besitzt Spalten für Aufgaben, welche noch nicht begonnen wurden, aktuell in Bearbeitung oder fertig sind.
+Der Grund für diese Methode ist die einhergehende Übersicht über den aktuellen Verlauf im Projekt.
