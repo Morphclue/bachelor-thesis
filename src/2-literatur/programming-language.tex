@@ -1,5 +1,22 @@
 \subsection{Programmiersprache}
-Der Großteil aller \ac{PSX}-Spiele ist in der Programmiersprache C geschrieben\cite{retro-programming-c}. Es existieren einige Ausnahmen. Zum Beispiel das Spiel Crash Bandicoot, welches in \ac{GOOL} geschrieben ist\cite{gool}.
-Es ist allerdings zunächst davon auszugehen, dass Digimon World keine Ausnahme bildet und der Programmcode vermutlich ebenfalls in C geschrieben ist. Die \ac{PSX} beinhaltet einen Mikroprozessor ohne verschränkte Pipeline-Stufen - \ac{MIPS} - R3000A mit zwei zusätzlichen Coprozessoren\cite{psx-architecture}. Von diesem wird die Sprache C in \ac{MIPS}-Assemblycode übersetzt. Dieser Prozess wurde von einem Entwickler reverse engineered. Reverse Engineering bedeutet im Allgemeinem, dass ein Prozess der Entwicklung rückwärts durchlaufen wird. Der zuvor übersetzte \ac{MIPS}-Assemblycode wurde zurückübersetzt. Allerdings ist die Übersetzung nur in einer C-ähnlichen Pseudosprache vorhanden und nicht in einem kompilierbaren Format\cite{github-dw1code}. \\
+Der Großteil aller \ac{PSX}-Spiele ist in der Programmiersprache C geschrieben\cite{retro-programming-c}.
+Es existieren einige Ausnahmen.
+Zum Beispiel das Spiel Crash Bandicoot, welches in \ac{GOOL} geschrieben ist\cite{gool}.
+Es ist allerdings zunächst davon auszugehen, dass Digimon World keine Ausnahme bildet und der Programmcode vermutlich ebenfalls in C geschrieben ist.
+Die \ac{PSX} beinhaltet einen Mikroprozessor ohne verschränkte Pipeline-Stufen - \ac{MIPS} - R3000A mit zwei zusätzlichen Coprozessoren\cite{psx-architecture}.
+Von diesem wird die Sprache C in \ac{MIPS}-Assemblycode übersetzt.
+Dieser Prozess wurde von einem Entwickler reverse engineered.
+Reverse Engineering bedeutet im Allgemeinem, dass ein Prozess der Entwicklung rückwärts durchlaufen wird.
+Der zuvor übersetzte \ac{MIPS}-Assemblycode wurde zurückübersetzt.
+Allerdings ist die Übersetzung nur in einer C-ähnlichen Pseudosprache vorhanden und nicht in einem kompilierbaren Format\cite{github-dw1code}. \\
 
-Im Rahmen der Bachelorarbeit ist ein Kontakt zu diesem Entwickler entstanden. Der Entwickler beschäftigt sich bereits seit sechs Jahren mit Digimon World und hat zahlreiche Tools entwickelt. Der Entwickler kann bestätigen, dass Pfade zu Dateien mit \texttt{.c} als Dateiendung existieren. Ebenfalls taucht der Begriff C-Compiler vermehrt auf. Dies bestätigt die Annahme, dass Digimon World in C geschrieben ist. Die vorhin erwähnten Assemblydateien wurden mit dem eingebauten Debugger von psxFin herausgelesen\cite{psxfin}. Die Software Cheat Engine wurde dann verwendet, um den Speicher auszulesen\cite{cheatengine}. Der aktuelle Ansatz des Entwicklers ist es, die Dateien mit Ghidra zu dekompilieren und zu analysieren\cite{ghidra}. Dies hat den Vorteil, dass Dateien nicht mehr manuell dekompiliert werden müssen. Die daraus gewonnenen Daten werden als Anhaltspunkt für die Analyse im folgendem Kapitel verwendet.\\
+Im Rahmen der Bachelorarbeit ist ein Kontakt zu diesem Entwickler entstanden.
+Der Entwickler beschäftigt sich bereits seit sechs Jahren mit Digimon World und hat zahlreiche Tools entwickelt.
+Der Entwickler kann bestätigen, dass Pfade zu Dateien mit \texttt{.c} als Dateiendung existieren.
+benfalls taucht der Begriff C-Compiler vermehrt auf.
+Dies bestätigt die Annahme, dass Digimon World in C geschrieben ist.
+Die vorhin erwähnten Assemblydateien wurden mit dem eingebauten Debugger von psxFin herausgelesen\cite{psxfin}.
+Die Software Cheat Engine wurde dann verwendet, um den Speicher auszulesen\cite{cheatengine}.
+Der aktuelle Ansatz des Entwicklers ist es, die Dateien mit Ghidra zu dekompilieren und zu analysieren\cite{ghidra}.
+Dies hat den Vorteil, dass Dateien nicht mehr manuell dekompiliert werden müssen.
+Die daraus gewonnenen Daten werden als Anhaltspunkt für die Analyse im folgendem Kapitel verwendet.\\
